@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://bdoalmjg21h30"]
+
+[ext_resource type="Script" uid="uid://bbuym4f66ovlh" path="res://main.gd" id="1_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://618bc7ftphfv" path="res://menu.tscn" id="1_h2yge"]
+[ext_resource type="PackedScene" uid="uid://bu5y436b40rpt" path="res://Level/Level1/Boss1.tscn" id="3_h2yge"]
+[ext_resource type="Script" uid="uid://dr7syakcgexhp" path="res://save_load.gd" id="4_1bvp3"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_1bvp3")
+
+[node name="Menu" parent="." instance=ExtResource("1_h2yge")]
+visible = false
+offset_left = -66.0
+offset_top = -51.0
+offset_right = -66.0
+offset_bottom = -51.0
+
+[node name="Boss1" parent="." instance=ExtResource("3_h2yge")]
+
+[node name="Save-Load" type="Node" parent="."]
+script = ExtResource("4_1bvp3")

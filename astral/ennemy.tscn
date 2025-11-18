@@ -1,0 +1,90 @@
+[gd_scene load_steps=10 format=3 uid="uid://ccm2dgqrnl3c6"]
+
+[ext_resource type="Script" uid="uid://bual4ma1m7oe6" path="res://ennemy.gd" id="1_f3frg"]
+[ext_resource type="Texture2D" uid="uid://qm3uiwokp6rw" path="res://Sprites/mechant.png" id="2_f3frg"]
+[ext_resource type="Texture2D" uid="uid://bhkgqm8qg1yjg" path="res://Sprites/mechant5.png" id="2_mmf0m"]
+[ext_resource type="Texture2D" uid="uid://4q6vsvyr38q4" path="res://Sprites/mechant1.png" id="3_c481b"]
+[ext_resource type="Texture2D" uid="uid://cjq1slkn40jsw" path="res://Sprites/mechant2.png" id="4_isk2f"]
+[ext_resource type="Texture2D" uid="uid://bb525f0pc13v6" path="res://Sprites/mechant3.png" id="5_7xlpg"]
+[ext_resource type="Texture2D" uid="uid://bbj4cpqvvo8bu" path="res://Sprites/mechant4.png" id="7_1i7u7"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_isk2f"]
+radius = 12.0
+height = 24.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c481b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_mmf0m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_f3frg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_f3frg")
+}],
+"loop": true,
+"name": &"Down",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_f3frg")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_isk2f")
+}],
+"loop": true,
+"name": &"Idle1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_7xlpg")
+}],
+"loop": true,
+"name": &"Left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_c481b")
+}],
+"loop": true,
+"name": &"Right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_1i7u7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_isk2f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_isk2f")
+}],
+"loop": true,
+"name": &"Up",
+"speed": 2.0
+}]
+
+[node name="Ennemy" type="CharacterBody2D"]
+script = ExtResource("1_f3frg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_isk2f")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_c481b")
+animation = &"Up"
+frame_progress = 0.34276727
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
