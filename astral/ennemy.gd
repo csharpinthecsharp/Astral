@@ -10,7 +10,14 @@ func _ready():
 func _physics_process(delta: float) -> void:
 	if player:
 		var direction = (player.global_position - global_position).normalized()
-		velocity = direction * speed
+		var distance = global_position.distance_to(player.global_position)
+
+		print(distance)
+		if distance > 60: #only move if not too close
+			velocity = direction * speed
+		else:
+			velocity = Vector2.ZERO
+			#ATTAQUE SPECIAL
 		move_and_slide()
 
 		# Choose animation based on direction

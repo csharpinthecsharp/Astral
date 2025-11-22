@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var speed = 0.5 # How fast the player will move (pixels/sec).
+@export var speed = 5 # How fast the player will move (pixels/sec).
 @export var mooving = false;
 @export var player_pos = 0.0
 var screen_size # Size ofs the game window.

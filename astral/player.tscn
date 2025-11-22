@@ -1,11 +1,19 @@
-[gd_scene load_steps=9 format=3 uid="uid://bnbk5kv1wkpvo"]
+[gd_scene load_steps=19 format=3 uid="uid://bnbk5kv1wkpvo"]
 
 [ext_resource type="Script" uid="uid://ntj2caka32fm" path="res://character_body_2d.gd" id="1_2hs0m"]
 [ext_resource type="Texture2D" uid="uid://c6y4yhrtloy1p" path="res://Sprites/MiniCharDown.png" id="2_2hs0m"]
 [ext_resource type="Texture2D" uid="uid://ebq3yggya0nu" path="res://Sprites/MiniCharLeft.png" id="3_1jxqw"]
+[ext_resource type="Texture2D" uid="uid://dm0u8gy0ajotj" path="res://Sprites/MiniCharDownRight.png" id="3_n7ghd"]
+[ext_resource type="Texture2D" uid="uid://d0blah0n70gts" path="res://Sprites/MiniCharDownLeft.png" id="3_nvl01"]
 [ext_resource type="Texture2D" uid="uid://78r35abeew5k" path="res://Sprites/MiniChar.png" id="4_dw050"]
 [ext_resource type="Texture2D" uid="uid://di0vjw5a2tjeq" path="res://Sprites/MiniCharRight.png" id="5_b26j0"]
 [ext_resource type="Texture2D" uid="uid://blmu25r7b7kxy" path="res://Sprites/MiniCharUp.png" id="6_n7ghd"]
+[ext_resource type="Texture2D" uid="uid://bporxu7oayd7c" path="res://Sprites/Health1.png" id="7_b26j0"]
+[ext_resource type="Texture2D" uid="uid://4vg0lt4lgk6p" path="res://Sprites/Health2.png" id="8_b26j0"]
+[ext_resource type="Texture2D" uid="uid://ba51eynniajo6" path="res://Sprites/MiniCharUpLeft.png" id="9_urp6f"]
+[ext_resource type="Texture2D" uid="uid://bypr3mhld540j" path="res://Sprites/MiniCharUpRight.png" id="10_bwjto"]
+[ext_resource type="FontFile" uid="uid://7v0vi6bphtsx" path="res://Fonts/CF Kenjiro Demo.ttf" id="13_bwjto"]
+[ext_resource type="Texture2D" uid="uid://ds2lt15m117ur" path="res://Sprites/Key.png" id="14_606se"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dw050"]
 animations = [{
@@ -15,6 +23,22 @@ animations = [{
 }],
 "loop": true,
 "name": &"Down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_nvl01")
+}],
+"loop": true,
+"name": &"DownLeft",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_n7ghd")
+}],
+"loop": true,
+"name": &"DownRight",
 "speed": 5.0
 }, {
 "frames": [{
@@ -48,24 +72,102 @@ animations = [{
 "loop": true,
 "name": &"Up",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_urp6f")
+}],
+"loop": true,
+"name": &"UpLeft",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_bwjto")
+}],
+"loop": true,
+"name": &"UpRight",
+"speed": 5.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b26j0"]
 radius = 6.0
-height = 12.0
+height = 18.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n7ghd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_b26j0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_b26j0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dw050"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
 
 [node name="CharacterBody2D" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_2hs0m")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="MovementChar" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 position = Vector2(-1, 0)
 sprite_frames = SubResource("SpriteFrames_dw050")
-animation = &"Down"
+animation = &"Up"
 speed_scale = 0.8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_b26j0")
 
 [node name="Camera2D" type="Camera2D" parent="." groups=["player"]]
-zoom = Vector2(2.5, 2.5)
+zoom = Vector2(2, 2)
+
+[node name="HealthIcon" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-260, -135)
+sprite_frames = SubResource("SpriteFrames_n7ghd")
+frame_progress = 0.9547624
+
+[node name="Label" type="Label" parent="HealthIcon"]
+texture_filter = 1
+offset_left = 8.999999
+offset_top = -9.000002
+offset_right = 449.0
+offset_bottom = 342.0
+scale = Vector2(0.05, 0.05)
+theme_override_constants/outline_size = 30
+theme_override_constants/shadow_outline_size = 1
+theme_override_fonts/font = ExtResource("13_bwjto")
+theme_override_font_sizes/font_size = 250
+theme_override_styles/normal = SubResource("StyleBoxFlat_dw050")
+text = ": 10"
+
+[node name="KeyIcon" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-260, -112)
+texture = ExtResource("14_606se")
+
+[node name="Label" type="Label" parent="KeyIcon"]
+texture_filter = 1
+offset_left = 9.0000305
+offset_top = -6.9999924
+offset_right = 449.00003
+offset_bottom = 344.0
+scale = Vector2(0.05, 0.05)
+theme_override_constants/outline_size = 30
+theme_override_constants/shadow_outline_size = 1
+theme_override_fonts/font = ExtResource("13_bwjto")
+theme_override_font_sizes/font_size = 250
+theme_override_styles/normal = SubResource("StyleBoxFlat_dw050")
+text = ": 0"

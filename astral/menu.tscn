@@ -1,9 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://618bc7ftphfv"]
+[gd_scene load_steps=14 format=3 uid="uid://618bc7ftphfv"]
 
 [ext_resource type="Texture2D" uid="uid://c6xufb5mua73y" path="res://Sprites/Menu-Background.png" id="1_lti8b"]
 [ext_resource type="Script" uid="uid://ir0x1io5oweq" path="res://menu.gd" id="1_ouk20"]
 [ext_resource type="Texture2D" uid="uid://c7c8qu2fhh31j" path="res://Sprites/BigChar.png" id="3_mae5d"]
-[ext_resource type="FontFile" uid="uid://b0i3bvdey5620" path="res://Fonts/Break gothic.ttf" id="4_4hy44"]
+[ext_resource type="FontFile" uid="uid://7v0vi6bphtsx" path="res://Fonts/CF Kenjiro Demo.ttf" id="4_4hy44"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mae5d"]
 texture = ExtResource("1_lti8b")
@@ -63,6 +63,9 @@ corner_radius_top_right = 16
 corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
 shadow_size = 10
+
+[sub_resource type="FontVariation" id="FontVariation_ytr4m"]
+base_font = ExtResource("4_4hy44")
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -159,10 +162,10 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -186.0
-offset_top = -181.0
-offset_right = 294.0
-offset_bottom = 19.0
+offset_left = -190.0
+offset_top = -157.0
+offset_right = 238.0
+offset_bottom = 9.0
 grow_horizontal = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0.87109375, 0.09527588, 0.09527588, 0)
@@ -171,7 +174,7 @@ theme_override_constants/shadow_offset_x = 100
 theme_override_constants/shadow_offset_y = 100
 theme_override_constants/outline_size = 20
 theme_override_constants/shadow_outline_size = 1
-theme_override_fonts/font = ExtResource("4_4hy44")
+theme_override_fonts/font = SubResource("FontVariation_ytr4m")
 theme_override_font_sizes/font_size = 150
 text = "Astral"
 
