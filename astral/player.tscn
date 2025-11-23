@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bnbk5kv1wkpvo"]
+[gd_scene load_steps=20 format=3 uid="uid://bnbk5kv1wkpvo"]
 
 [ext_resource type="Script" uid="uid://ntj2caka32fm" path="res://character_body_2d.gd" id="1_2hs0m"]
 [ext_resource type="Texture2D" uid="uid://c6y4yhrtloy1p" path="res://Sprites/MiniCharDown.png" id="2_2hs0m"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://bypr3mhld540j" path="res://Sprites/MiniCharUpRight.png" id="10_bwjto"]
 [ext_resource type="FontFile" uid="uid://7v0vi6bphtsx" path="res://Fonts/CF Kenjiro Demo.ttf" id="13_bwjto"]
 [ext_resource type="Texture2D" uid="uid://ds2lt15m117ur" path="res://Sprites/Key.png" id="14_606se"]
+[ext_resource type="Texture2D" uid="uid://dig4cntoy0n30" path="res://Sprites/cat-skeleton.png" id="15_606se"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dw050"]
 animations = [{
@@ -169,3 +170,17 @@ theme_override_fonts/font = ExtResource("13_bwjto")
 theme_override_font_sizes/font_size = 250
 theme_override_styles/normal = SubResource("StyleBoxFlat_dw050")
 text = ": 0"
+
+[node name="Narrative" type="Label" parent="."]
+offset_left = -33.0
+offset_top = 93.0
+offset_right = 55.0
+offset_bottom = 639.0
+scale = Vector2(0.05, 0.05)
+theme_override_font_sizes/font_size = 200
+
+[node name="NarrativeFace" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(-40, 101)
+texture = ExtResource("15_606se")

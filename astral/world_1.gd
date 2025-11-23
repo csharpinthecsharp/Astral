@@ -1,6 +1,9 @@
 extends Node2D
 var key_state = 0
 
+func _ready():
+	$Cat/Cat_NPC.play()
+	
 func _on_exit_body_entered(body: Node2D) -> void:
 	if body.name == "Player" && key_state == 1:
 		$Timer.start()
@@ -19,3 +22,11 @@ func _on_door_key_animation_looped() -> void:
 
 func _on_void_trap_body_entered(body: Node2D) -> void:
 	pass
+
+func _on_cat_body_entered(body: Node2D) -> void:
+	$TileMapLayer/Player/Narrative.text = "Cat: No one can open the door."
+	$TileMapLayer/Player/NarrativeFace.visible = true
+	
+func _on_cat_body_exited(body: Node2D) -> void:
+		$TileMapLayer/Player/Narrative.text = ""
+		$TileMapLayer/Player/NarrativeFace.visible = false
