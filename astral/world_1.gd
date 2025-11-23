@@ -16,3 +16,6 @@ func _on_door_key_animation_looped() -> void:
 	$Key/Door_Key.visible = false
 	$TileMapLayer/Player/KeyIcon/Label.text = ": 1"
 	key_state = 1
+
+func _on_void_trap_body_entered(body: Node2D) -> void:
+	pass

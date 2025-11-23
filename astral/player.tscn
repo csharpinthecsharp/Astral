@@ -91,8 +91,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b26j0"]
-radius = 6.0
-height = 18.0
+radius = 5.0
+height = 10.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_n7ghd"]
 animations = [{
@@ -117,8 +117,6 @@ corner_radius_bottom_left = 16
 
 [node name="CharacterBody2D" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_2hs0m")
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="MovementChar" type="AnimatedSprite2D" parent="."]
 texture_filter = 1

@@ -8,6 +8,10 @@ var input
 func _ready():
 	$HealthIcon.play()
 
+func _open_menu():
+	if Input.is_action_pressed("escape"):
+		get_tree().change_scene_to_file("res://menu.tscn")
+		
 func _animate_and_moove_single_key():
 	if Input.is_action_pressed("move_right"):
 		$MovementChar.play("Right")
@@ -38,6 +42,7 @@ func _physics_process(_delta: float) -> void:
 	
 	_animate_and_moove_single_key()
 	_animate_double_key()
+	_open_menu()
 	
 	if input != Vector2.ZERO:
 		input = input.normalized()
